@@ -24,7 +24,12 @@ def test_calculate_fuel():
     mass = 12.0
     assert day_one.calculate_fuel(mass) == 2
 
-def test_calculate_total_fuel():
+def test_calculate_total_fuel_including_fuel_for_fuel():
     day_one = DayOne()
-    assert day_one.calculate_total_fuel('./test/test_day_one.txt') == -5
+    initial_fuel = day_one.calculate_mass_fuel(1969)
+    assert day_one.calculate_total_fuel_for_fuel(initial_fuel, 0) == 966
+
+def test_calculate_all_of_the_fuel():
+    day_one = DayOne()
+    assert day_one.calculate_all_of_the_fuel('./test/test_day_one.txt') == 0
 

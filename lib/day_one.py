@@ -21,15 +21,25 @@ class DayOne:
         rounded_mass = self.round_down(divided_mass)
         return int(self.subtract_two(rounded_mass))
 
-    def calculate_total_fuel(self, file_path):
+    def calculate_mass_fuel(self, mass):
+        return self.calculate_fuel(mass)
+
+    def calculate_total_fuel_for_fuel(self, fuel, running_total):
+        if fuel < 0:
+            return running_total
+        else:
+            return self.calculate_total_fuel_for_fuel(self.calculate_fuel(fuel), (running_total + fuel))
+
+    def calculate_all_of_the_fuel(self, file_path):
         masses = self.read(file_path)
         total_fuel = 0
         for mass in masses:
-            total_fuel += self.calculate_fuel(mass)
+            initial_fuel = self.calculate_mass_fuel(mass)
+            total_fuel += self.calculate_total_fuel_for_fuel(initial_fuel, 0)
         print total_fuel
         return total_fuel
 
 
 if __name__ == '__main__':
     day_one = DayOne()
-    day_one.calculate_total_fuel('day-one.txt')
+    day_one.calculate_all_of_the_fuel('day-one.txt')
