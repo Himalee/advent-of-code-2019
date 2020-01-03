@@ -1,8 +1,0 @@
-[
-  "test/test_day_one.py::test_read_file", 
-  "test/test_day_one.py::test_divide_mass", 
-  "test/test_day_one.py::test_round_down", 
-  "test/test_day_one.py::test_subtract_two", 
-  "test/test_day_one.py::test_calculate_fuel", 
-  "test/test_day_one.py::test_calculate_total_fuel"
-]
